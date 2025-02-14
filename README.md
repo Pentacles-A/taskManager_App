@@ -1,9 +1,3 @@
-## To see in action
-
-Deployed in Render: https://springboot-render-zw3v.onrender.com/
-
-Backend explainer video https://www.youtube.com/watch?v=70RosvxzChY
-
 ## Features
 
 - **Create:** Create a new task by providing a title and a description.
