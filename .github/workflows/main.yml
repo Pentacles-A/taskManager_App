@@ -1,0 +1,36 @@
+name: Build JAR File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: 'JDK 22'
+      uses: oracle-actions/setup-java\@v1
+      with:
+        website: jdk.java.net
+
+    - name: Build with Maven
+      run: mvn package
+
+    - name: Install Tree
+      run:
+        sudo apt install tree
+
+    - name: Tree
+      run:
+        tree -h
+
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: taskmanagerapp
+        path: build/libs/my-app.jar
